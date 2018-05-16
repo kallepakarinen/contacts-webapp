@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/internal/Observable';
 import {map} from 'rxjs/operators';
 import {Contact} from '../contact';
+import {environment} from '../../../environments/environment';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class ContactHttpService {
   url: string;
 
   constructor(private httpClient: HttpClient) {
-    this.url = 'http://localhost:3000/contacts';
+    this.url = environment.apiEndpointUrl;
   }
 
   getContacts(): Observable<Contact[]> {
