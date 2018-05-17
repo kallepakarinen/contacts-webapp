@@ -19,6 +19,10 @@ contact: Contact;
     this.contactService.getContactById(contactId).subscribe(response => {
       this.contact = response;
       console.log(this.contact);
+    }, error1 => {
+      console.log('fail');
+      // console.log(error);
+      this.router.navigate(['/contacts']);
     });
   }
 
