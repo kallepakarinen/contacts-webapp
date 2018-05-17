@@ -5,7 +5,6 @@ import {map} from 'rxjs/operators';
 import {Contact} from '../contact';
 import {environment} from '../../../environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +18,12 @@ export class ContactHttpService {
   getContacts(): Observable<Contact[]> {
     return this.httpClient.get(this.url).pipe(map(response => {
       return response as Contact[];
+    }));
+  }
+
+  getById(id): Observable<Contact> {
+    return this.httpClient.get(this.url + '/' + id).pipe(map(response => {
+      return response as Contact;
     }));
   }
 

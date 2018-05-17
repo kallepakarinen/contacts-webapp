@@ -7,13 +7,15 @@ import {ContactHttpService} from './contact-http-service';
   providedIn: 'root'
 })
 export class ContactService {
-  // contacts: Contact[];
-
-
-  constructor(private contactHttpService: ContactHttpService) {}
-
+  constructor(private contactHttpService: ContactHttpService) {
+  }
 
   getContacts(): Observable<Contact[]> {
     return this.contactHttpService.getContacts();
   }
+
+  getContactById(id): Observable<Contact> {
+    return this.contactHttpService.getById(id);
+  }
+
 }
