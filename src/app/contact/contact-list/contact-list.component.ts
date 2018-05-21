@@ -19,13 +19,17 @@ export class ContactListComponent implements OnInit {
   ngOnInit() {
     this.contactService.getContacts().subscribe(response => {
       this.contacts = response;
-    //  console.log(this.contacts);
+      //  console.log(this.contacts);
     });
   }
 
   onContactSelect(contact): void {
     // console.log(contact.id);
     this.router.navigate(['/contacts', contact.id]);
+  }
+
+  onCreateNew(): void {
+    this.router.navigate(['/contacts/new']);
   }
 
 }

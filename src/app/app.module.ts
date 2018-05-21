@@ -15,9 +15,9 @@ import {AvatarModule} from 'ng2-avatar';
 import {TextToColorPipe} from './contact/pipes/text-to-color.pipe';
 import {NgPipesModule} from 'ngx-pipes';
 
-
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
+  {path: 'contacts/new', component: ContactDetailComponent},
   {path: 'contacts/:id', component: ContactDetailComponent},
   {path: '', redirectTo: '/contacts', pathMatch: 'full'}
 ];

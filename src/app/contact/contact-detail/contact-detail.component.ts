@@ -9,12 +9,18 @@ import {Contact} from '../contact';
   styleUrls: ['./contact-detail.component.css']
 })
 export class ContactDetailComponent implements OnInit {
-contact: Contact;
+  contact: Contact;
+
   constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactService) {
+    this.contact = new Contact();
   }
 
   ngOnInit() {
     const contactId = this.route.snapshot.paramMap.get('id');
+    if (contactId == null) {
+      return;
+    }
+
     this.contactService.getContactById(contactId).subscribe(response => {
       this.contact = response;
     }, error => {
@@ -24,6 +30,10 @@ contact: Contact;
 
   onNavigateBack(): void {
     this.router.navigate(['/contacts']);
-      }
+  }
+
+  onSave(): void {
+    console.log('kj');
+  }
 
 }

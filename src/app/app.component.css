@@ -23,3 +23,7 @@
   background: #5e5e5e;
   padding: 8px;
 }
+
+.cw-sidenav-content{
+  overflow: hidden;
+}

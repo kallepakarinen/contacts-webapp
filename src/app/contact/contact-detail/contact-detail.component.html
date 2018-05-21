@@ -1,9 +1,64 @@
-<div *ngIf="contact">
-  <h2>{{contact.firstName}} {{contact.lastName}}</h2>
-  <p><mat-icon color="primary"> home </mat-icon> {{contact.streetAddress}}, {{contact.postalCode}} {{contact.city}}</p>
-  <p><mat-icon color="primary"> call </mat-icon> {{contact.phoneNumber}}</p>
-  <p><mat-icon color="primary"> alternate_email </mat-icon> {{contact.emailAddress}}</p>
-  <button mat-button mat-raised-button color="primary" (click)="onNavigateBack()">Back</button>
-  <button mat-button mat-raised-button color="warn">Back</button>
-</div>
+<mat-card class="cw-card-layout">
+  <button mat-icon-button (click)="onNavigateBack()">
+    <mat-icon class="mat-18">arrow_back</mat-icon>
+  </button>
+
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <div fxLayout="column" class="cw-contact-detail-fields">
+      <mat-form-field floatPlaceholder="auto">
+        <input matInput [(ngModel)]="contact.firstName"
+               type="text"
+               required
+               placeholder="First name">
+      </mat-form-field>
+
+      <mat-form-field floatPlaceholder="auto">
+        <input matInput [(ngModel)]="contact.lastName"
+               type="text"
+               required
+               placeholder="last name">
+      </mat-form-field>
+
+      <mat-form-field floatPlaceholder="auto">
+        <input matInput [(ngModel)]="contact.streetAddress"
+               type="text"
+               required
+               placeholder="Address">
+      </mat-form-field>
+
+      <mat-form-field floatPlaceholder="auto">
+        <input matInput [(ngModel)]="contact.city"
+               type="text"
+               required
+               placeholder="city">
+      </mat-form-field>
+
+      <mat-form-field floatPlaceholder="auto">
+        <input matInput [(ngModel)]="contact.postalCode"
+               type="text"
+               required
+               placeholder="Postal code">
+      </mat-form-field>
+
+      <mat-form-field floatPlaceholder="auto">
+        <input matInput [(ngModel)]="contact.phoneNumber"
+               type="text"
+               required
+               placeholder="Phone number">
+      </mat-form-field>
+
+      <mat-form-field floatPlaceholder="auto">
+        <input matInput [(ngModel)]="contact.emailAddress"
+               type="text"
+               required
+               placeholder="Email">
+      </mat-form-field>
+    </div>
+  </div>
+</mat-card>
+<button mat-fab (click)="onSave()" class="cw-fab">
+  <mat-icon>check</mat-icon>
+</button>
+
+
 
