@@ -15,13 +15,9 @@ contact: Contact;
 
   ngOnInit() {
     const contactId = this.route.snapshot.paramMap.get('id');
-    // console.log(contactId);
     this.contactService.getContactById(contactId).subscribe(response => {
       this.contact = response;
-   //  console.log(this.contact);
     }, error => {
-    //  console.log('fail');
-      // console.log(error);
       this.router.navigate(['/contacts']);
     });
   }
