@@ -1,0 +1,25 @@
+.cw-sidenav-container{
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cw-sidenav {
+  width: 200px;
+}
+
+.cw-app-container {
+  height: 100%;
+  overflow: auto;
+}
+.cw-sidenav-avatar {
+  font-size: 80px;
+  width: 80px;
+  height: 80px;
+}
+
+.cw-sidenav-user-area {
+  background: #5e5e5e;
+  padding: 8px;
+}

@@ -9,8 +9,9 @@ import {ContactHttpService} from './contact/services/contact-http-service';
 import {HttpClientModule} from '@angular/common/http';
 import {ContactDetailComponent} from './contact/contact-detail/contact-detail.component';
 import {RouterModule, Routes} from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatIconModule} from '@angular/material';
+import {MaterialComponentsModule} from './ui/material-components/material-components.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
+
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
@@ -29,9 +30,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule
+    MaterialComponentsModule,
+    FlexLayoutModule
   ],
   providers: [
     ContactService,

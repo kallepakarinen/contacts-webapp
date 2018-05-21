@@ -1,7 +1,9 @@
 <div *ngIf="contact">
   <h2>{{contact.firstName}} {{contact.lastName}}</h2>
-  <p><i class="material-icons" > add_location </i> {{contact.streetAddress}}, {{contact.postalCode}} {{contact.city}}</p>
-  <p><i class="material-icons" > call </i> {{contact.phoneNumber}}</p>
-  <p><i class="material-icons" > alternate_email </i> {{contact.emailAddress}}</p>
+  <p><mat-icon color="primary"> home </mat-icon> {{contact.streetAddress}}, {{contact.postalCode}} {{contact.city}}</p>
+  <p><mat-icon color="primary"> call </mat-icon> {{contact.phoneNumber}}</p>
+  <p><mat-icon color="primary"> alternate_email </mat-icon> {{contact.emailAddress}}</p>
   <button mat-button mat-raised-button color="primary" (click)="onNavigateBack()">Back</button>
+  <button mat-button mat-raised-button color="warn">Back</button>
 </div>
+
