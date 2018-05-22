@@ -22,7 +22,6 @@ export class ContactListComponent implements OnInit {
     this.toolbar.toolbarOptions.next(new ToolbarOptions('Contacts', []));
     this.contactService.getContacts().subscribe(response => {
       this.contacts = response;
-      //  console.log(this.contacts);
     });
   }
 

@@ -8,11 +8,11 @@ import {ToolbarOptions} from './toolbar-options';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  @Output() onMenuClick: EventEmitter<any>;
+  @Output() MenuClick: EventEmitter<any>;
   options: ToolbarOptions;
 
   constructor(private toolbar: ToolbarService) {
-    this.onMenuClick = new EventEmitter<any>();
+    this.MenuClick = new EventEmitter<any>();
   }
 
   ngOnInit() {
@@ -21,8 +21,8 @@ export class ToolbarComponent implements OnInit {
     });
   }
 
-  menuClick() {
-    this.onMenuClick.emit();
+  onMenuClick() {
+    this.MenuClick.emit();
   }
 
 }

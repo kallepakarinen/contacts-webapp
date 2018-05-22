@@ -17,8 +17,7 @@
   </mat-sidenav>
 
   <div fxFlexFill class="cw-sidenav-content">
-    <!-- App content -->
-    <cw-toolbar (onMenuClick)="sidenav.toggle()"></cw-toolbar>
+    <cw-toolbar (MenuClick)="sidenav.toggle()"></cw-toolbar>
     <div class="cw-app-container">
       <!-- app -->
       <router-outlet></router-outlet>

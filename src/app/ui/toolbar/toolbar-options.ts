@@ -9,4 +9,3 @@ export class ToolbarOptions {
     this.actions = actions;
   }
 }
-

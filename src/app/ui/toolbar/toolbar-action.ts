@@ -8,7 +8,7 @@ export class ToolbarAction {
   }
 
   runAction(): void {
-    this.action;
+    this.action();
   }
 }
 
