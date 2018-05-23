@@ -39,4 +39,8 @@ export class ContactHttpService {
     }));
   }
 
+  delete(contact): Observable<any> {
+    return this.httpClient.delete(this.url + '/' + contact.id);
+  }
+
 }

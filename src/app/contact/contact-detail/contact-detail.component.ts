@@ -31,13 +31,13 @@ export class ContactDetailComponent implements OnInit {
       toolbarActions = [];
     } else {
       toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
-
       this.contactService.getContactById(this.contactId).subscribe(response => {
         this.contact = response;
       }, error => {
         this.router.navigate(['/contacts']);
       });
     }
+
     this.toolbar.toolbarOptions.next(
       new ToolbarOptions(
         'Contact', toolbarActions));
@@ -51,16 +51,19 @@ export class ContactDetailComponent implements OnInit {
     if (this.contactId == null) {
       this.editingEnabled = false;
       this.contactService.createContact(this.contact).subscribe(response => {
-        this.contact = response;
-        const toolbarActions: ToolbarAction[] = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
-        this.toolbar.toolbarOptions.next(
-          new ToolbarOptions('Contact', toolbarActions));
+        /* this.contact = response;
+         const toolbarActions: ToolbarAction[] = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
+         this.toolbar.toolbarOptions.next(
+           new ToolbarOptions('Contact', toolbarActions));*/
+        alert('onnistui');
+        this.router.navigate(['/contacts']);
       });
     } else {
       this.editingEnabled = false;
       this.contactService.updateContact(this.contact).subscribe(response => {
         this.contact = response;
-        // this.router.navigate(['/contacts']);
+        alert('onnistui');
+        this.router.navigate(['/contacts']);
       });
     }
   }
@@ -68,4 +71,12 @@ export class ContactDetailComponent implements OnInit {
   onEdit() {
     this.editingEnabled = !this.editingEnabled;
   }
+
+  onDelete() {
+    this.editingEnabled = false;
+    this.contactService.deleteContact(this.contact).subscribe(() =>{
+      this.router.navigate(['/contacts']);
+    });
+  }
+
 }
