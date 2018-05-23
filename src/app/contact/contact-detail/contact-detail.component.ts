@@ -40,11 +40,7 @@ export class ContactDetailComponent implements OnInit {
 
     this.toolbar.toolbarOptions.next(
       new ToolbarOptions(
-        'Contact', toolbarActions));
-  }
-
-  onNavigateBack(): void {
-    this.router.navigate(['/contacts']);
+        true, 'Contact', toolbarActions));
   }
 
   onSave(): void {
@@ -74,7 +70,7 @@ export class ContactDetailComponent implements OnInit {
 
   onDelete() {
     this.editingEnabled = false;
-    this.contactService.deleteContact(this.contact).subscribe(() =>{
+    this.contactService.deleteContact(this.contact).subscribe(() => {
       this.router.navigate(['/contacts']);
     });
   }

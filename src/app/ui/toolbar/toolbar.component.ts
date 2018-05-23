@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ToolbarService} from './toolbar.service';
 import {ToolbarOptions} from './toolbar-options';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'cw-toolbar',
@@ -11,7 +12,7 @@ export class ToolbarComponent implements OnInit {
   @Output() MenuClick: EventEmitter<any>;
   options: ToolbarOptions;
 
-  constructor(private toolbar: ToolbarService) {
+  constructor(private location: Location, private toolbar: ToolbarService) {
     this.MenuClick = new EventEmitter<any>();
   }
 
@@ -23,6 +24,10 @@ export class ToolbarComponent implements OnInit {
 
   onMenuClick() {
     this.MenuClick.emit();
+  }
+
+  onNavigateBack() {
+    this.location.back();
   }
 
 }
