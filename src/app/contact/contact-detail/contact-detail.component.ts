@@ -38,19 +38,13 @@ export class ContactDetailComponent implements OnInit {
       });
     }
 
-    this.toolbar.toolbarOptions.next(
-      new ToolbarOptions(
-        true, 'Contact', toolbarActions));
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact', toolbarActions));
   }
 
   onSave(): void {
     if (this.contactId == null) {
       this.editingEnabled = false;
       this.contactService.createContact(this.contact).subscribe(response => {
-        /* this.contact = response;
-         const toolbarActions: ToolbarAction[] = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
-         this.toolbar.toolbarOptions.next(
-           new ToolbarOptions('Contact', toolbarActions));*/
         alert('onnistui');
         this.router.navigate(['/contacts']);
       });
@@ -65,7 +59,18 @@ export class ContactDetailComponent implements OnInit {
   }
 
   onEdit() {
+    let toolbarActions: ToolbarAction[];
+
     this.editingEnabled = !this.editingEnabled;
+    if (this.editingEnabled === true) {
+      toolbarActions = [
+        new ToolbarAction(this.onEdit.bind(this), 'delete'),
+        new ToolbarAction(this.onEdit.bind(this), 'edit')
+      ];
+    } else {
+      toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
+    }
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact', toolbarActions));
   }
 
   onDelete() {
