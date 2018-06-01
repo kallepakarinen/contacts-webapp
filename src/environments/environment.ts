@@ -5,8 +5,9 @@
 export const environment = {
   production: false,
   // Json server
-/*  apiEndpointUrl: 'http://localhost:3000/contacts'*/
-  apiEndpointUrl: 'http://localhost:51501/api/contacts'
+/*  apiEndpointUrl: 'http://localhost:3000/contacts'
+  apiEndpointUrl: 'http://localhost:51501/api/contacts'*/
+  apiEndpointUrl: 'http://ekoodicontactsapi.azurewebsites.net'
 };
 
 /*
