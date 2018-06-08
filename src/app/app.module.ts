@@ -18,6 +18,8 @@ import {ToolbarService} from './ui/toolbar/toolbar.service';
 import {LoginComponent} from './user/login/login.component';
 import {AuthenticationService} from './user/services/authentication.service';
 import {TokenService} from './user/services/token.service';
+import {DialogComponent} from './contact/dialog/dialog.component';
+import {SnackbarComponent} from './contact/snackbar/snackbar.component';
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
@@ -34,7 +36,9 @@ const appRoutes: Routes = [
     ContactDetailComponent,
     TextToColorPipe,
     ToolbarComponent,
-    LoginComponent
+    LoginComponent,
+    DialogComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +55,10 @@ const appRoutes: Routes = [
     ContactHttpService,
     ToolbarService,
     AuthenticationService,
-    TokenService
+    TokenService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent, SnackbarComponent]
 })
 export class AppModule {
 }
