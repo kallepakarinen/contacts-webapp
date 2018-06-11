@@ -41,7 +41,6 @@ export class ContactDetailComponent implements OnInit {
         this.router.navigate(['/contacts']);
       });
     }
-
     this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact', toolbarActions));
   }
 
@@ -57,7 +56,6 @@ export class ContactDetailComponent implements OnInit {
         && this.contact.city
       ) === undefined) {
         this.openDialog();
-        this.ngOnInit();
       } else {
         this.openSnackBar();
         this.contactService.createContact(this.contact).subscribe(response => {
@@ -97,9 +95,12 @@ export class ContactDetailComponent implements OnInit {
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
+      role: 'alertdialog',
+      data: 'Fill all fields'
     });
+
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.ngOnInit();
     });
   }
 
